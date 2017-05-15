@@ -16,6 +16,10 @@ class MongoBuilder {
     }
 
 
+    /**
+     * @param $sql string
+     * @return \MongoCursor
+     */
     public function query($sql){
         $parser = new Parser($sql);
         $parser->process();
@@ -25,6 +29,9 @@ class MongoBuilder {
 
     }
 
+    /**
+     * @param $cursor \MongoCursor
+     */
     public function showResult($cursor){
         foreach ($cursor as $row){
             unset($row['_id']);
